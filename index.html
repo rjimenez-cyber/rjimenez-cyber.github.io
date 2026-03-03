@@ -87,6 +87,20 @@
       <p><a href="https://posit.co/download/rstudio-desktop/" /a> per fer el grafics i analitzar dades.
       les dades analitzade son horaries des de el 20 de novembre de 1991 fins al 30 de desembre de 2025.
       Visita la pagina Martorell d'aquesta pagina web per veure grafics generats a partir d'aquestes dades</p>
+        <pre><code>pm10_daily <- timeAverage(
+  ciutatwide,
+  avg.time = "day",
+  pollutant = "pm10"
+)
+
+pm10_daily_exceed <- sum(
+  pm10_daily$pm10 > 50,
+  na.rm = TRUE
+)
+
+cat("Dies amb PM10 > 50 µg/m³:", pm10_daily_exceed, "\n")</code></pre>
+        <p>El codi ens permet veure que a Martorell l'any 2025 es va superar 12 vegades  el límit de 50 micrograms per metre cúbic de partícules en suspensió (PM<sub>10</sub>). L' Unió Europea permet superar 35 vegades l'any el límit de PM10 </p>
+        <p>Martorell no compleix els criteris mundials de l'Organització mundial de la salut que son entre 3 i 4 dies a l'any i una mica menys de contaminació en comptes de 50 el límit es 45 &micro;g/m<sup>3</sup>(micrograms per metre cúbic)</p>
 </div>
 
 <!-- Scripts necessaris -->
